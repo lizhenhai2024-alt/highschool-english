@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'data/repositories/assignment_repository.dart';
-import 'ui/core/theme/app_theme.dart';
-import 'ui/features/home/view_models/home_view_model.dart';
-import 'ui/features/home/views/home_screen.dart';
+import 'package:highschool_english_student/data/repositories/assignment_repository.dart';
+import 'package:highschool_english_student/ui/core/theme/app_theme.dart';
+import 'package:highschool_english_student/ui/features/home/view_models/home_view_model.dart';
+import 'package:highschool_english_student/ui/features/home/views/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
-import '../../../domain/models/assignment.dart';
-import '../../core/theme/app_theme.dart';
-import '../view_models/home_view_model.dart';
-import '../../practice/views/practice_screen.dart';
+import 'package:highschool_english_student/domain/models/assignment.dart';
+import 'package:highschool_english_student/ui/core/theme/app_theme.dart';
+import 'package:highschool_english_student/ui/features/home/view_models/home_view_model.dart';
+import 'package:highschool_english_student/ui/features/practice/views/practice_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

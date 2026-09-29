@@ -1,5 +1,5 @@
-import '../../domain/models/assignment.dart';
-import '../services/mock_data_service.dart';
+import 'package:highschool_english_student/domain/models/assignment.dart';
+import 'package:highschool_english_student/data/services/mock_data_service.dart';
 
 class AssignmentRepository {
   List<Assignment>? _cachedAssignments;

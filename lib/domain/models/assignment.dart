@@ -1,5 +1,5 @@
-import 'accent_type.dart';
-import 'task_item.dart';
+import 'package:highschool_english_student/domain/models/accent_type.dart';
+import 'package:highschool_english_student/domain/models/task_item.dart';
 
 enum TaskType {
   listening,          // 双口音精听理解

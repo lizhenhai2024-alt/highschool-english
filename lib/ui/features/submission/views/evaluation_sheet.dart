@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../domain/models/speech_evaluation.dart';
-import '../../core/theme/app_theme.dart';
+import 'package:highschool_english_student/domain/models/speech_evaluation.dart';
+import 'package:highschool_english_student/ui/core/theme/app_theme.dart';
 
 class EvaluationSheet extends StatelessWidget {
   final SpeechEvaluation evaluation;

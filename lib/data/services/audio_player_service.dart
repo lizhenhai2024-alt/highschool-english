@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:just_audio/just_audio.dart';
-import '../../domain/models/accent_type.dart';
+import 'package:highschool_english_student/domain/models/accent_type.dart';
 
 class AudioPlayerService {
   final AudioPlayer _player = AudioPlayer();

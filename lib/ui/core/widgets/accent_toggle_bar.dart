@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../domain/models/accent_type.dart';
-import '../theme/app_theme.dart';
+import 'package:highschool_english_student/domain/models/accent_type.dart';
+import 'package:highschool_english_student/ui/core/theme/app_theme.dart';
 
 class AccentToggleBar extends StatelessWidget {
   final AccentType currentAccent;

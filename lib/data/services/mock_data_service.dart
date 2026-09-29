@@ -1,7 +1,7 @@
-import '../../domain/models/accent_type.dart';
-import '../../domain/models/assignment.dart';
-import '../../domain/models/speech_evaluation.dart';
-import '../../domain/models/task_item.dart';
+import 'package:highschool_english_student/domain/models/accent_type.dart';
+import 'package:highschool_english_student/domain/models/assignment.dart';
+import 'package:highschool_english_student/domain/models/speech_evaluation.dart';
+import 'package:highschool_english_student/domain/models/task_item.dart';
 
 class MockDataService {
   /// 获取所有教材册次的听说训练任务列表 (优先加载：人教版高中英语 选择性必修第一册「选必一」)

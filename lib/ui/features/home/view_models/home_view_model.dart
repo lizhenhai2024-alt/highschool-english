@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import '../../../data/repositories/assignment_repository.dart';
-import '../../../domain/models/assignment.dart';
+import 'package:highschool_english_student/data/repositories/assignment_repository.dart';
+import 'package:highschool_english_student/domain/models/assignment.dart';
 
 class HomeViewModel extends ChangeNotifier {
   final AssignmentRepository _repository;

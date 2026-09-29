@@ -1,6 +1,6 @@
-import '../../domain/models/accent_type.dart';
-import '../../domain/models/speech_evaluation.dart';
-import '../services/mock_data_service.dart';
+import 'package:highschool_english_student/domain/models/accent_type.dart';
+import 'package:highschool_english_student/domain/models/speech_evaluation.dart';
+import 'package:highschool_english_student/data/services/mock_data_service.dart';
 
 class PracticeRepository {
   Future<SpeechEvaluation> evaluateRecording({

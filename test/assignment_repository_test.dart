@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:highschool_english_student/domain/models/accent_type.dart';
 import 'package:highschool_english_student/domain/models/assignment.dart';
 import 'package:highschool_english_student/data/repositories/assignment_repository.dart';
 import 'package:highschool_english_student/data/repositories/practice_repository.dart';
+import 'package:highschool_english_student/ui/features/submission/views/evaluation_sheet.dart';
 
 void main() {
   group('人教版高中英语 选择性必修第一册 (选必一) 核心模型与仓库测试', () {
@@ -48,6 +50,31 @@ void main() {
       expect(eval.intelligibilityScore, greaterThan(85.0));
       expect(eval.words.any((w) => w.word.toLowerCase() == 'artemisinin'), true);
       expect(eval.suggestions.isNotEmpty, true);
+    });
+
+    testWidgets('EvaluationSheet UI component compiles and renders cleanly', (tester) async {
+      final repo = PracticeRepository();
+      final eval = await repo.evaluateRecording(
+        targetText: 'Tu Youyou discovered artemisinin.',
+        audioPath: '/mock/path/audio.m4a',
+        chosenAccent: AccentType.british,
+      );
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: EvaluationSheet(
+              evaluation: eval,
+              hasNext: true,
+              onRetry: () {},
+              onNext: () {},
+            ),
+          ),
+        ),
+      );
+
+      expect(find.text('口语评测总分'), findsOneWidget);
+      expect(find.text('针对性提升建议'), findsOneWidget);
     });
   });
 }

@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import '../../../data/repositories/practice_repository.dart';
-import '../../../data/services/audio_player_service.dart';
-import '../../../data/services/audio_recorder_service.dart';
-import '../../../domain/models/accent_type.dart';
-import '../../../domain/models/assignment.dart';
-import '../../../domain/models/speech_evaluation.dart';
-import '../../../domain/models/task_item.dart';
+import 'package:highschool_english_student/data/repositories/practice_repository.dart';
+import 'package:highschool_english_student/data/services/audio_player_service.dart';
+import 'package:highschool_english_student/data/services/audio_recorder_service.dart';
+import 'package:highschool_english_student/domain/models/accent_type.dart';
+import 'package:highschool_english_student/domain/models/assignment.dart';
+import 'package:highschool_english_student/domain/models/speech_evaluation.dart';
+import 'package:highschool_english_student/domain/models/task_item.dart';
 
 class PracticeViewModel extends ChangeNotifier {
   final Assignment assignment;

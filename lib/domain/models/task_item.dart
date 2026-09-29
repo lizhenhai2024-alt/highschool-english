@@ -1,4 +1,4 @@
-import 'accent_type.dart';
+import 'package:highschool_english_student/domain/models/accent_type.dart';
 
 class SentenceCue {
   final int index;

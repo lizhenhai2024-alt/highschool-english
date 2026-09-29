@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../data/repositories/practice_repository.dart';
-import '../../../domain/models/assignment.dart';
-import '../../core/theme/app_theme.dart';
-import '../../core/widgets/accent_toggle_bar.dart';
-import '../../core/widgets/waveform_view.dart';
-import '../view_models/practice_view_model.dart';
-import '../../submission/views/evaluation_sheet.dart';
+import 'package:highschool_english_student/data/repositories/practice_repository.dart';
+import 'package:highschool_english_student/domain/models/assignment.dart';
+import 'package:highschool_english_student/ui/core/theme/app_theme.dart';
+import 'package:highschool_english_student/ui/core/widgets/accent_toggle_bar.dart';
+import 'package:highschool_english_student/ui/core/widgets/waveform_view.dart';
+import 'package:highschool_english_student/ui/features/practice/view_models/practice_view_model.dart';
+import 'package:highschool_english_student/ui/features/submission/views/evaluation_sheet.dart';
 
 class PracticeScreen extends StatelessWidget {
   final Assignment assignment;
