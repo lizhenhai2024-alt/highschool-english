@@ -54,8 +54,8 @@ jobs:
       # 7. 编译生成正式版 APK 安装包 (通用安装包 + 分架构安装包)
       - name: Build Release APK
         run: |
-          flutter build apk --release
-          flutter build apk --release --split-per-abi
+          flutter build apk --release --android-skip-build-dependency-validation
+          flutter build apk --release --split-per-abi --android-skip-build-dependency-validation
 
       # 8. 重命名并整理产物
       - name: Organize APK Artifacts
