@@ -1,0 +1,43 @@
+name: highschool_english_student
+description: "人教版高中英语听说训练 - 学生端安卓应用 (PEP High School English Listening & Speaking Training Student App)"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 状态管理与响应式
+  provider: ^6.1.2
+
+  # 音频播放与控制
+  just_audio: ^0.9.46
+  audio_session: ^0.1.21
+
+  # 麦克风录音与波形采集
+  record: ^5.2.0
+
+  # 基础网络与缓存存储
+  http: ^1.2.2
+  shared_preferences: ^2.3.2
+  path_provider: ^2.1.4
+
+  # UI 视觉与图标组件
+  intl: ^0.19.0
+  flutter_svg: ^2.0.10+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/audio/
+    - assets/images/
