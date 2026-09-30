@@ -102,30 +102,33 @@ class _HomeScreenState extends State<HomeScreen> {
               child: SingleChildScrollView(
                 physics: const AlwaysScrollableScrollPhysics(),
                 padding: const EdgeInsets.all(16),
-                children: [
-                  // 1. 顶部学生与班级身份横幅
-                  _buildHeaderBanner(viewModel),
-                  const SizedBox(height: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // 1. 顶部学生与班级身份横幅
+                    _buildHeaderBanner(viewModel),
+                    const SizedBox(height: 16),
 
-                  // 2. 人教版教材册次选择器 (默认选必一)
-                  _buildBookSelector(viewModel),
-                  const SizedBox(height: 16),
+                    // 2. 人教版教材册次选择器 (默认选必一)
+                    _buildBookSelector(viewModel),
+                    const SizedBox(height: 16),
 
-                  // 3. 学情统计指标行
-                  _buildStatRow(viewModel),
-                  const SizedBox(height: 20),
+                    // 3. 学情统计指标行
+                    _buildStatRow(viewModel),
+                    const SizedBox(height: 20),
 
-                  // 4. 任务分类切换与列表标题
-                  _buildSectionHeader(viewModel),
-                  const SizedBox(height: 12),
+                    // 4. 任务分类切换与列表标题
+                    _buildSectionHeader(viewModel),
+                    const SizedBox(height: 12),
 
-                  // 5. 任务作业列表
-                  if (viewModel.filteredAssignments.isEmpty)
-                    _buildEmptyState()
-                  else
-                    ...viewModel.filteredAssignments.map((assignment) => _buildAssignmentCard(assignment)),
-                  const SizedBox(height: 24),
-                ],
+                    // 5. 任务作业列表
+                    if (viewModel.filteredAssignments.isEmpty)
+                      _buildEmptyState()
+                    else
+                      ...viewModel.filteredAssignments.map((assignment) => _buildAssignmentCard(assignment)),
+                    const SizedBox(height: 24),
+                  ],
+                ),
               ),
             ),
     );
@@ -296,7 +299,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Text(
                                     '当前',
                                     style: TextStyle(
-                                      color: isSelected ? Colors.black86 : Colors.amber.shade900,
+                                      color: isSelected ? Colors.black87 : Colors.amber.shade900,
                                       fontSize: 9,
                                       fontWeight: FontWeight.w900,
                                     ),

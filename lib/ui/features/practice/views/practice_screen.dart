@@ -107,35 +107,38 @@ class _PracticeScreenContentState extends State<_PracticeScreenContent> {
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                children: [
-                  // 1. 口音与语速控制条
-                  _buildControlHeader(viewModel),
-                  const SizedBox(height: 12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // 1. 口音与语速控制条
+                    _buildControlHeader(viewModel),
+                    const SizedBox(height: 12),
 
-                  // 2. 目标句子卡片
-                  _buildSentenceCard(viewModel, currentItem),
-                  const SizedBox(height: 14),
-
-                  // 3. 影子跟读专属延迟调节滑块 (仅在影子模式呈现)
-                  if (viewModel.assignment.taskType == TaskType.shadowing) ...[
-                    _buildShadowingDelaySlider(viewModel),
+                    // 2. 目标句子卡片
+                    _buildSentenceCard(viewModel, currentItem),
                     const SizedBox(height: 14),
+
+                    // 3. 影子跟读专属延迟调节滑块 (仅在影子模式呈现)
+                    if (viewModel.assignment.taskType == TaskType.shadowing) ...[
+                      _buildShadowingDelaySlider(viewModel),
+                      const SizedBox(height: 14),
+                    ],
+
+                    // 4. 双轨波形对比展示 (示范轨 + 学生录音轨)
+                    DualWaveformView(
+                      referenceWave: viewModel.referenceWave,
+                      studentWave: viewModel.studentWave,
+                      playbackProgress: viewModel.playbackProgress,
+                      isRecording: viewModel.isRecording,
+                      shadowingDelaySeconds: viewModel.assignment.taskType == TaskType.shadowing ? viewModel.shadowingDelay : 0.0,
+                    ),
+                    const SizedBox(height: 14),
+
+                    // 5. 英美音音标对比与重音注意事项
+                    if (currentItem.sentenceCues.isNotEmpty && currentItem.sentenceCues.first.phoneticsNote != null)
+                      _buildPhoneticsTipCard(currentItem.sentenceCues.first.phoneticsNote!),
                   ],
-
-                  // 4. 双轨波形对比展示 (示范轨 + 学生录音轨)
-                  DualWaveformView(
-                    referenceWave: viewModel.referenceWave,
-                    studentWave: viewModel.studentWave,
-                    playbackProgress: viewModel.playbackProgress,
-                    isRecording: viewModel.isRecording,
-                    shadowingDelaySeconds: viewModel.assignment.taskType == TaskType.shadowing ? viewModel.shadowingDelay : 0.0,
-                  ),
-                  const SizedBox(height: 14),
-
-                  // 5. 英美音音标对比与重音注意事项
-                  if (currentItem.sentenceCues.isNotEmpty && currentItem.sentenceCues.first.phoneticsNote != null)
-                    _buildPhoneticsTipCard(currentItem.sentenceCues.first.phoneticsNote!),
-                ],
+                ),
               ),
             ),
 
