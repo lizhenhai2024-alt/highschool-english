@@ -53,11 +53,36 @@ void main() {
     });
 
     testWidgets('EvaluationSheet UI component compiles and renders cleanly', (tester) async {
-      final repo = PracticeRepository();
-      final eval = await repo.evaluateRecording(
-        targetText: 'Tu Youyou discovered artemisinin.',
-        audioPath: '/mock/path/audio.m4a',
-        chosenAccent: AccentType.british,
+      const eval = SpeechEvaluation(
+        id: 'mock_eval_1',
+        overallScore: 92.0,
+        intelligibilityScore: 90.0,
+        contentScore: 95.0,
+        fluencyScore: 88.0,
+        stressIntonationScore: 92.0,
+        pronunciationScore: 91.0,
+        accentDetected: '英音 (RP)',
+        recognizedText: 'Tu Youyou was awarded the Nobel Prize in Physiology or Medicine.',
+        targetText: 'Tu Youyou was awarded the Nobel Prize in Physiology or Medicine.',
+        wpm: 110.0,
+        words: [
+          WordDetail(
+            word: 'Tu',
+            phoneticUk: '/tuː/',
+            phoneticUs: '/tuː/',
+            status: WordStatus.correct,
+            score: 95.0,
+          ),
+          WordDetail(
+            word: 'artemisinin',
+            phoneticUk: '/ˌɑːtɪˈmiːsɪnɪn/',
+            phoneticUs: '/ˌɑːrt̬əˈmɪsənɪn/',
+            status: WordStatus.correct,
+            score: 96.0,
+            feedbackTip: '专业生词发音准确',
+          ),
+        ],
+        suggestions: ['注意连读和意群停顿', '保持稳定的语调升降'],
       );
 
       await tester.pumpWidget(

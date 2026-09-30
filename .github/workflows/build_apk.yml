@@ -17,6 +17,8 @@ jobs:
   build:
     name: Build & Package Release APK
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       # 1. 检出仓库代码
@@ -74,12 +76,27 @@ jobs:
           path: output_apks/*.apk
           retention-days: 30
 
-      # 10. 若为版本发布 Tag (如 v1.0.0)，自动发布到 GitHub Releases
-      - name: Create GitHub Release
-        if: startsWith(github.ref, 'refs/tags/v')
+      # 10. 自动发布到 GitHub Releases (支持 Release Tag 与 main 分支预览版)
+      - name: Create or Update GitHub Release
         uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
         with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || 'v1.0.0-preview' }}
+          name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || '人教版高中英语听说训练 (选必一) v1.0.0 预览版' }}
+          body: |
+            ## 🎓 人教版高中英语听说训练移动端 (选择性必修第一册专版)
+
+            ### 🚀 本次更新包含：
+            - **教材聚焦**：优先加载「选择性必修第一册」Unit 1《People of Achievement (屠呦呦与青蒿素)》与 Unit 2《Looking into the Future》。
+            - **双口音精听与切换**：支持英音 (RP) 与美音 (GA) 原声无缝切换、0.8x/1.0x/1.2x 调速与原声比对。
+            - **影子跟读训练**：支持 0.5s ~ 3.0s 可调节跟读延时、目标文本显示与实时录音对比。
+            - **多维 AI 诊断反馈**：可理解度、内容完成度、流利度、重音语调、音素五维量化打分与生词发音指导。
+
+            ### 📲 安装包下载指引：
+            - `HighSchoolEnglish-Student-Release.apk`：通用版本，兼容绝大多数 Android 手机与平板。
+            - `HighSchoolEnglish-Student-arm64-v8a.apk`：针对 64 位主流机型（体积更小，运行更高效）。
+          prerelease: ${{ !startsWith(github.ref, 'refs/tags/v') }}
           files: output_apks/*.apk
-          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
